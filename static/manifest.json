@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Storygraph Printer",
+  "version": "1.0.0",
+  "description": "Extracts 'To Read' information from Storygraph.",
+  "permissions": ["activeTab"],
+  "action": {
+    "default_title": "Storygraph Printer", 
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "16": "print.png",
+    "32": "print32.png",
+    "48": "print48.png",
+    "128": "print128.png"
+  },
+  "content_scripts": [
+    {
+      "js": ["runPrint.js"],
+      "matches": [
+        "https://app.thestorygraph.com/to-read/*",
+        "https://app.thestorygraph.com/owned-books/*",
+        "https://app.thestorygraph.com/books-read/*",
+        "https://app.thestorygraph.com/five_star_reads",
+        "https://app.thestorygraph.com/currently-reading/*"
+      ]
+    }
+  ]
+}
