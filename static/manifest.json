@@ -9,10 +9,10 @@
     "default_popup": "index.html"
   },
   "icons": {
-    "16": "print.png",
-    "32": "print32.png",
-    "48": "print48.png",
-    "128": "print128.png"
+    "16": "sgp16.png",
+    "32": "sgp32.png",
+    "48": "sgp48.png",
+    "128": "sgp128.png"
   },
   "content_scripts": [
     {
