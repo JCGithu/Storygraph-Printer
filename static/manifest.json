@@ -3,7 +3,6 @@
   "name": "Storygraph Printer",
   "version": "1.0.0",
   "description": "Extracts 'To Read' information from Storygraph.",
-  "permissions": ["activeTab"],
   "action": {
     "default_title": "Storygraph Printer", 
     "default_popup": "index.html"
