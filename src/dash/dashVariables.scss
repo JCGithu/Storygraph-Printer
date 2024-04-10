@@ -7,4 +7,4 @@ $fontSize: 1rem;
 
 $accentColour: #fe5f55;
 $off: #232323;
-$on: fade-out($fontColour, 0.5);
+$on: $accentColour;

@@ -30,11 +30,11 @@
 
 <main>
   <h1>Storygraph Printer</h1>
-  <p>Made by <a href="https://colloquial.studio/">Colloquial Studio</a></p>
+  <p>Made by <a href="https://colloquial.studio/" style="color: #fe5f55;" target="_blank">Colloquial Studio</a></p>
   <section>
     <p><a href="mailto:colloquialstudios@gmail.com">Contact</a></p>
     <p>&nbsp/&nbsp</p>
-    <p><a href="https://colloquial.studio/donate">Donate</a></p>
+    <p><a href="https://colloquial.studio/donate" target="_blank">Donate</a></p>
   </section>
   <DashGroup title="Settings">
     <DashText name="Default Output" subtitle="{'{'}author{'}'} {'{'}title{'}'} {'{'}year{'}'} {'{'}series{'}'}" bind:value={SGPsettings.default} on:change={saveSettings} />
@@ -47,10 +47,13 @@
   main {
     font-family: "Poppins";
     width: 300px;
-    background-color: #fe5f55;
+    background-color: #333333;
     color: white;
     margin: 0;
     padding: 1rem;
+  }
+  h1 {
+    color: #2cb1bc;
   }
   a {
     color: white;
