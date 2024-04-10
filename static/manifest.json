@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Storygraph Printer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Extracts 'To Read' information from Storygraph.",
   "action": {
     "default_title": "Storygraph Printer", 
@@ -13,15 +13,14 @@
     "48": "sgp48.png",
     "128": "sgp128.png"
   },
+  "permissions": [
+    "storage"
+  ],
   "content_scripts": [
     {
       "js": ["runPrint.js"],
       "matches": [
-        "https://app.thestorygraph.com/to-read/*",
-        "https://app.thestorygraph.com/owned-books/*",
-        "https://app.thestorygraph.com/books-read/*",
-        "https://app.thestorygraph.com/five_star_reads",
-        "https://app.thestorygraph.com/currently-reading/*"
+        "https://app.thestorygraph.com/*"
       ]
     }
   ]

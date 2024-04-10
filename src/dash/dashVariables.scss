@@ -1,0 +1,10 @@
+$fontColour: white;
+$font: "Poppins";
+$fade: rgba(255, 255, 255, 0.1);
+$highlight: fade-out($fontColour, 0.9);
+$transition: 0.35s cubic-bezier(0.71, 0.7, 0.41, 1) 0s !important;
+$fontSize: 1rem;
+
+$accentColour: #fe5f55;
+$off: #232323;
+$on: fade-out($fontColour, 0.5);
