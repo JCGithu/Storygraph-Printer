@@ -21,7 +21,6 @@ async function retrieveSettings() {
   });
 }
 
-// Call the retrieveSettings function when the content script runs
 retrieveSettings();
 
 const URLArray = ['to-read',"currently-reading","owned-books","five_star_reads","books-read"];
@@ -41,6 +40,12 @@ function generateExtension(){
     targetElement = document.getElementsByClassName('to-read-books');
     if (targetElement[0]) targetElement = targetElement[0];
     priorElement = document.getElementById('up-next-section');
+    //
+    let divider = document.getElementById('up-next-section').querySelector('hr');
+    if (divider) {
+      divider.classList.remove('mt-6');
+      divider.classList.add('mt-3');
+    }
   } else if (URL.includes("currently-reading") || URL.includes("owned-books") || URL.includes("five_star_reads")) {
     targetElement = document.getElementsByClassName('container');
     if (targetElement[0]) targetElement = targetElement[0];
@@ -49,6 +54,8 @@ function generateExtension(){
     if (targetElement[1]) targetElement = targetElement[1].firstElementChild;
     priorElement = targetElement.querySelectorAll('form')[1];
   }
+
+  if(!targetElement) return;
   
   
   let exportText = SGPsettings.default;
@@ -56,7 +63,6 @@ function generateExtension(){
   function mapToString(map) {
     let result = "<ul>";
     map.forEach((value, key) => {
-      console.log(value);
       let lineText = exportText.replace('{title}', key).replace('{author}', value.author).replace('{year}', value.year).replace('{series}', value.series ? value.series : '');
       result += `<li>${lineText}</li>`;
     });
@@ -131,10 +137,8 @@ function generateExtension(){
   mainDiv.id = 'storygraphPrinter'
   
   let hr = document.createElement('hr');
-  hr.classList.add('text-darkGrey');
-  hr.classList.add('dark:text-darkerGrey');
-  hr.classList.add('mt-6');
-  mainDiv.appendChild(hr);
+  hr.classList.add('text-darkGrey','dark:text-darkerGrey','mt-6');
+
   
   let bodyDiv = document.createElement('div');
   bodyDiv.classList.add('flex', 'justify-between','items-center', 'px-1');
@@ -196,16 +200,19 @@ function generateExtension(){
   testButton.addEventListener('click', runStorygraphPrinter)
   bodyDiv.appendChild(testButton);
   
-  //Final Add;
-  if (targetElement){
-    mainDiv.appendChild(bodyDiv);
-    mainDiv.appendChild(resultBlock);
-    if (priorElement){
-      targetElement.insertBefore(mainDiv, priorElement);
-    } else {
-      targetElement.appendChild(mainDiv);
-    }
+
+  mainDiv.appendChild(hr);
+  mainDiv.appendChild(bodyDiv);
+  mainDiv.appendChild(resultBlock);
+  if (URL.includes("currently-reading") || URL.includes("books-read") || URL.includes("five_star_reads")) {
+    let hrTwo = document.createElement('hr');
+    hrTwo.classList.add('text-darkGrey','dark:text-darkerGrey','mt-3');
+    mainDiv.appendChild(hrTwo);
   }
-  
+  if (priorElement){
+    targetElement.insertBefore(mainDiv, priorElement);
+  } else {
+    targetElement.appendChild(mainDiv);
+  }
 }
 
