@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Storygraph Printer",
   "version": "1.1.1",
-  "description": "Extracts 'To Read' information from Storygraph.",
+  "description": "Get plain text book lists from Storygraph.",
   "action": {
     "default_title": "Storygraph Printer", 
     "default_popup": "index.html"
